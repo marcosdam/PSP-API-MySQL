@@ -10,14 +10,15 @@ class GamesRoutes{
     // Config con rutas declaradas
     config():void {
         // GET
-        this.router.get('/', gamesController.list);
-        this.router.get('/:id', gamesController.getOne);
+        this.router.get('/', gamesController.listGames);
+        // GET ONE
+        this.router.get('/:id', gamesController.getOneGame);
         // POST
-        this.router.post('/',gamesController.create);
+        this.router.post('/',gamesController.addGame);
         // DELETE
-        this.router.delete('/:id', gamesController.delete);
+        this.router.delete('/:id', gamesController.deleteGame);
         // UPDATE
-        this.router.put('/:id', gamesController.update);
+        this.router.put('/:id', gamesController.updateGame);
     }
 }
 

@@ -4,7 +4,7 @@ import keys from './keys';
 const pool = mysql.createPool(keys.database);
 
 pool.then((r:any) => r.getConnection().then((connection: any) => {
-    r.releaseConnection(connection);
+    connection.release();
     console.log('Base de datos conectada');
 }));
 
