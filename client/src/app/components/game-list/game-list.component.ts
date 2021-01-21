@@ -11,17 +11,26 @@ import {Observable} from "rxjs";
 export class GameListComponent implements OnInit {
 
   // vars -> (games: será tipo Game (interfaz que crearemos), no any)
-  game: any;
-  games: Observable<any[]> = [];
+  games: any = [];
 
   // Inyectar gamesService al constructor & ActivatedRoute (para guardar )
-  constructor(private gamesService: GamesService, private activatedRoute: ActivatedRoute) { }
+  constructor(private gameService: GamesService) { }
 
   // Iniciar games en OnInit
   ngOnInit() {
-    const params = this.activatedRoute.params;
-    this.games = this.gamesService.getGames();
-    this.game = this.gamesService.getOneGame(params.id);
+    this.getGames();
   }
 
+  // getGames
+  getGames() {
+    this.gameService.getGames()
+      .subscribe(res => {
+        this.games = res;
+      },
+        err => console.error(err))
+  }
+
+  deleteGame(id) {
+    
+  }
 }

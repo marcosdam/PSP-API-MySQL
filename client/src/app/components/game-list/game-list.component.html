@@ -1,1 +1,18 @@
-<p>game-list works!</p>
+<!-- Recorrer lista de juegos y cargarlos en cards -->
+<div class="col-md4" *ngFor="let game of games">
+  <div class="card text-center">
+    <div class="card-header bg-dark text-white-d-flex
+    justify-content-between align-items-center">
+      {{ game.title }}
+      <button class="btn btn-danger" (click)="deleteGame(game.id)">
+        <!-- Icon papelera -->
+        <i class="far fa-trash-alt"></i>
+      </button>
+    </div>
+    <img [src]="game.image" alt="Imagen del juego" class="card-img-top">
+    <div class="card-body">
+      <p>{{ game.description }}</p>
+      <a class="btn btn-info btn-block" [routerLink]="['/games/edit',game.id]">EDIT GAME</a>
+    </div>
+  </div>
+</div>
