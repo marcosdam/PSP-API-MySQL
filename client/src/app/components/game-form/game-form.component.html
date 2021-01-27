@@ -26,3 +26,16 @@
     </div>
   </div>
 </div>
+
+<!-- En caso de no haber imágen, cargará no-image.png -->
+<div class="col md-4">
+  <div class="card card-body text-center">
+    <img [src]="game.image == '' ? '/assets/images/no-image.jpg' : game.image" class="card-img-top" alt="Imágen del juego">
+    <!-- Si el título es null ponemos 'Título del juego', si no, el título -->
+    <h3>{{game.id}} {{game.title == '' ? 'Título del juego' : game.title}} </h3>
+    <!-- Descripción (lo mismo) -->
+    <p>{{game.description == '' ? 'Escribe tu descripción' : game.description}}</p>
+    <!-- Fecha con formato -->
+    <p>{{game.created_at | date: 'yyyy-MM-dd'}}</p>
+  </div>
+</div>
