@@ -30,7 +30,12 @@ export class GameListComponent implements OnInit {
         err => console.error(err))
   }
 
-  deleteGame(id) {
-    
+  deleteGame(id: string) {
+    this.gameService.deleteGame(id)
+      .subscribe(res => {
+        console.log(res);
+        this.getGames();  // Actualizar lista
+      },
+        err => console.log(err))
   }
 }

@@ -1,1 +1,28 @@
-<p>game-form works!</p>
+<!-- 6 columnas (2 de separación y 4 de ancho) -->>
+<div class="col md-4 offset-md-2">
+  <div class="card">
+    <div class="card-body">
+      <form>
+
+        <div class="form-group">
+          <input type="text" name="title" placeholder="Escribe el título"
+                 [(ngModel)]="game.title" class="form-control" autofocus>
+        </div>
+
+        <div class="form-group">
+          <textarea name="description" placeholder="Descripción" rows="2"
+                    [(ngModel)]="game.description" class="form-control"></textarea>
+        </div>
+
+        <div class="form-group">
+          <input type="url" name="image" [(ngModel)]="game.image" placeholder="Imágen" class="form-control">
+        </div>
+        <!-- BTN con ternario para guardar (si no existe el juego) o actualizar (si existe )-->
+        <button class="btn btn-success btn-block" (click)="edit ? update() : saveNewGame()">
+          GUARDAR CAMBIOS
+        </button>
+
+      </form>
+    </div>
+  </div>
+</div>
